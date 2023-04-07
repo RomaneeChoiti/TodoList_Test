@@ -3,7 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { add, remove } from "./store/store";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function App() {
   let food = useSelector((state) => state.food);
@@ -15,6 +16,12 @@ function App() {
     const lastItem = food[food.length - 1];
     return lastItem ? lastItem.id + 1 : 0;
   };
+
+  useEffect(() => {
+    axios.get("http://localhost:4000/foodList").then((response) => {
+      dispatch(add(response.data));
+    });
+  }, [dispatch]);
 
   return (
     <div className="App">
