@@ -1,0 +1,19 @@
+{
+  "foodList": [
+    {
+      "id": 1,
+      "name": "치킨",
+      "isComplete": "false"
+    },
+    {
+      "id": 2,
+      "name": "족박",
+      "isComplete": "false"
+    },
+    {
+      "id": 3,
+      "name": "초밥",
+      "isComplete": "false"
+    }
+  ]
+}
