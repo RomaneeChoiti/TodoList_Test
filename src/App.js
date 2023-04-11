@@ -2,9 +2,8 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { add, remove } from "./store/store";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { add, complete, remove } from "./store/store";
+import { useState } from "react";
 
 function App() {
   let food = useSelector((state) => state.food);
@@ -17,12 +16,6 @@ function App() {
     return lastItem ? lastItem.id + 1 : 0;
   };
 
-  useEffect(() => {
-    axios.get("http://localhost:4000/foodList").then((response) => {
-      dispatch(add(response.data));
-    });
-  }, [dispatch]);
-
   return (
     <div className="App">
       <div className="board">
@@ -32,6 +25,7 @@ function App() {
               <th>#</th>
               <th>음식</th>
               <th>삭제</th>
+              <th>먹음?</th>
             </tr>
           </thead>
           <tbody>
@@ -49,6 +43,18 @@ function App() {
                   >
                     삭제
                   </button>
+                </td>
+                {/* 체크박스 */}
+                <td>
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="flexCheckDefault"
+                    onClick={() => {
+                      dispatch(complete(food[i].id));
+                      console.log(food[i].isComplete);
+                    }}
+                  />
                 </td>
               </tr>
             ))}
