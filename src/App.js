@@ -25,7 +25,7 @@ function App() {
               <th>#</th>
               <th>음식</th>
               <th>삭제</th>
-              <th>먹음?</th>
+              <th>먹음??</th>
             </tr>
           </thead>
           <tbody>
