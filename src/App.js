@@ -52,7 +52,6 @@ function App() {
                     id="flexCheckDefault"
                     onClick={() => {
                       dispatch(complete(food[i].id));
-                      console.log(food[i].isComplete);
                     }}
                   />
                 </td>

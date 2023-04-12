@@ -22,6 +22,7 @@ let food = createSlice({
       const index = state.findIndex((i) => i.id === action.payload);
       if (index !== -1) {
         state[index].isComplete = true;
+        console.log(state[index].isComplete);
       }
     },
   },
